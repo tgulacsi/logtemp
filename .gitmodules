@@ -1,0 +1,3 @@
+[submodule "libraries/Webduino"]
+	path = libraries/Webduino
+	url = https://github.com/sirleech/Webduino.git

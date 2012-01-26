@@ -1,0 +1,24 @@
+== LogTemp
+LogTemp is a small temperature logging project for monitoring sanitary hot
+water - one temperature sensor is fitted on the in- pipe, and the other is
+on the back pipe.
+
+=== Temperature
+The sensors are DS18B20 type 1-Wire attached small things, with 4k7
+resistors on the specific legs (this was the hardest part - to figure out
+the correct wiring, because I'm not an electronic/soldering guy, and I
+couldn't find a clear correct diagram).
+
+The measurement is made by a FreeTronic EtherTen Arduino-compatible board,
+by a small program ([[https://github.com/tgulacsi/logtemp/blob/master/logtemp.ino|logtemp.ino]])
+which uses [[https://github.com/sirleech/Webduino.git|Webduino]] for the
+web interface, and [[http://milesburton.com/index.php?title=Dallas_Temperature_Control_Library|DallasTemperatureControl]]
+library for the sensor readings.
+
+=== Logging
+The logger runs on a remote machine, the [[https://github.com/tgulacsi/logtemp/blob/master/logtemp.py|logtemp.py]]
+cronjob gets the data from the web server on the Arduino, and stores them
+in RRD. Also creates a graph, too.
+
+=== Wiring
+I promise I'll create photos about the wiring!
